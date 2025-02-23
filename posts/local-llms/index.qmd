@@ -3,10 +3,11 @@ title: "How I Run Local LLMs"
 description: "In this article I show you how I set up local LLMs in VSCode. We'll use them for code completion and chat, right inside your code editor."
 
 date: "2024.12.06"
-date-modified: "2024.12.06"
+date-modified: "2025.02.23"
 
 categories:
   - notetaking
+  - llm
   - howto
 
 format:
@@ -15,6 +16,12 @@ format:
 
 aliases: 
   - /local-llms.html
+---
+
+
+### UPDATE: 
+I gave a presentation on this, with some updated tooling! Check it out [here](/posts/presentation-local-llms/index.qmd)!
+
 ---
 
 
@@ -34,7 +41,7 @@ Before diving into setting up your local LLMs, let's make sure you have the nece
 
 In addition to having a capable code editor, it's also essential to be not be terrified of working in the terminal. We're not going to do anything crazy, you don't have to be a unix-wizard, but we're gonna rely on some terminal commands during the setup.
 
-Finally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running larger models, it's worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues. 
+Finally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running smaller models (up to 7B or so), it's worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues. 
 
 If your machine is equipped with a stronger GPU, you'll also see a noticeable boost in inference speeds - but if you only have CPU, things will still work, just at a slightly slower pace.
 

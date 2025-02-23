@@ -18,7 +18,7 @@ I’m Gergő. I’m from Hungary and I’m currently doing my PhD at [JADS](http
 
 Here you will mostly find my thoughts about things I find interesting, be it personal or professional. I like to think the spice of life is following my curiosity, so if you find the topics chaotic, you have been warned.
 
-Find out more about [my research here](research.qmd)!
+Find out more about [my research here](research.qmd), or check out some of [my blogposts](blog.qmd)!
 
 
 

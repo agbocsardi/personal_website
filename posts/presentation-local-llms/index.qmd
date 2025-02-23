@@ -1,0 +1,23 @@
+---
+title: "My Presentation on Local LLMs"
+description: "This page has the materials I showed in my presentation on how to run local LLMs."
+
+date: "2025.02.23"
+date-modified: "2025.02.23"
+
+categories:
+  - howto
+  - llm
+
+format:
+  html:
+    code-overflow: wrap
+---
+
+
+### [**LINK TO MY SLIDES**](./local-llm-slides.pdf)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rAugTV-doFY?si=xLoQ2Nngzm3fBlO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+

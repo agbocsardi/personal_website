@@ -7,6 +7,7 @@ date-modified: "2024.12.06"
 
 categories:
   - notetaking
+  - llm
   - howto
 
 format:
