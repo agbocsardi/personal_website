@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Articles I Wrote",
     "section": "",
-    "text": "How I Run Local LLMs\n\n\n9 min\n\n\nIn this article I show you how I set up local LLMs in VSCode. We’ll use them for code completion and chat, right inside your code editor.\n\n\n\nDec 6, 2024\n\n\n\n\n\n\n\n\n\n\n\nChat with your Obsidian vault!\n\n\n5 min\n\n\nIt’s time to start talking to your Obsidian notes.\n\n\n\nDec 6, 2024\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "My Presentation on Local LLMs\n\n\n1 min\n\n\nThis page has the materials I showed in my presentation on how to run local LLMs.\n\n\n\nFeb 23, 2025\n\n\n\n\n\n\n\n\n\n\n\nHow I Run Local LLMs\n\n\n9 min\n\n\nIn this article I show you how I set up local LLMs in VSCode. We’ll use them for code completion and chat, right inside your code editor.\n\n\n\nDec 6, 2024\n\n\n\n\n\n\n\n\n\n\n\nChat with your Obsidian vault!\n\n\n5 min\n\n\nIt’s time to start talking to your Obsidian notes.\n\n\n\nDec 6, 2024\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Check out my work",
       "Articles I Wrote"
@@ -26,21 +26,21 @@
     "href": "posts/local-llms/index.html",
     "title": "How I Run Local LLMs",
     "section": "",
-    "text": "First and foremost, sometimes GitHub Copilot is just not available for your editor. This is how I arrived here, since I started using Positron as my IDE for all things Python and R, and at the time of writing, you cannot use Copilot in it. Chat I could live without, but the missing the AI code-completion really hurt.\nAnother significant benefit is the ability to maintain complete control over your work’s privacy - not everything needs or should be uploaded to an API. By running local models you can be sure that no sensitive information leaks out, which comes in handy if you’re working with sensitive data or documents.\nWe have two main objectives to get this up and running. First, you’ll need to host and run the models themselves, which involves setting up the necessary infrastructure to get them up and running. Once that’s taken care of, step two is finding a way of interacting with the LLMs in a way that feels intuitive and natural - whether that’s using them for code completion or engaging in conversation."
+    "text": "UPDATE: I gave a presentation on this, with some updated tooling! Check it out here!"
   },
   {
     "objectID": "posts/local-llms/index.html#why-bother-setting-this-up",
     "href": "posts/local-llms/index.html#why-bother-setting-this-up",
     "title": "How I Run Local LLMs",
-    "section": "",
-    "text": "First and foremost, sometimes GitHub Copilot is just not available for your editor. This is how I arrived here, since I started using Positron as my IDE for all things Python and R, and at the time of writing, you cannot use Copilot in it. Chat I could live without, but the missing the AI code-completion really hurt.\nAnother significant benefit is the ability to maintain complete control over your work’s privacy - not everything needs or should be uploaded to an API. By running local models you can be sure that no sensitive information leaks out, which comes in handy if you’re working with sensitive data or documents.\nWe have two main objectives to get this up and running. First, you’ll need to host and run the models themselves, which involves setting up the necessary infrastructure to get them up and running. Once that’s taken care of, step two is finding a way of interacting with the LLMs in a way that feels intuitive and natural - whether that’s using them for code completion or engaging in conversation."
+    "section": "Why bother setting this up",
+    "text": "Why bother setting this up\nFirst and foremost, sometimes GitHub Copilot is just not available for your editor. This is how I arrived here, since I started using Positron as my IDE for all things Python and R, and at the time of writing, you cannot use Copilot in it. Chat I could live without, but the missing the AI code-completion really hurt.\nAnother significant benefit is the ability to maintain complete control over your work’s privacy - not everything needs or should be uploaded to an API. By running local models you can be sure that no sensitive information leaks out, which comes in handy if you’re working with sensitive data or documents.\nWe have two main objectives to get this up and running. First, you’ll need to host and run the models themselves, which involves setting up the necessary infrastructure to get them up and running. Once that’s taken care of, step two is finding a way of interacting with the LLMs in a way that feels intuitive and natural - whether that’s using them for code completion or engaging in conversation."
   },
   {
     "objectID": "posts/local-llms/index.html#pre-requisites",
     "href": "posts/local-llms/index.html#pre-requisites",
     "title": "How I Run Local LLMs",
     "section": "Pre-requisites",
-    "text": "Pre-requisites\nBefore diving into setting up your local LLMs, let’s make sure you have the necessary pre-requisites met. First and foremost, you’ll need to have VSCode installed on your machine - this will be the hub where you interact with your LLMs.\nIn addition to having a capable code editor, it’s also essential to be not be terrified of working in the terminal. We’re not going to do anything crazy, you don’t have to be a unix-wizard, but we’re gonna rely on some terminal commands during the setup.\nFinally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running larger models, it’s worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues.\nIf your machine is equipped with a stronger GPU, you’ll also see a noticeable boost in inference speeds - but if you only have CPU, things will still work, just at a slightly slower pace."
+    "text": "Pre-requisites\nBefore diving into setting up your local LLMs, let’s make sure you have the necessary pre-requisites met. First and foremost, you’ll need to have VSCode installed on your machine - this will be the hub where you interact with your LLMs.\nIn addition to having a capable code editor, it’s also essential to be not be terrified of working in the terminal. We’re not going to do anything crazy, you don’t have to be a unix-wizard, but we’re gonna rely on some terminal commands during the setup.\nFinally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running smaller models (up to 7B or so), it’s worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues.\nIf your machine is equipped with a stronger GPU, you’ll also see a noticeable boost in inference speeds - but if you only have CPU, things will still work, just at a slightly slower pace."
   },
   {
     "objectID": "posts/local-llms/index.html#ollama",
@@ -73,6 +73,13 @@
       "Check out my work",
       "About my research"
     ]
+  },
+  {
+    "objectID": "posts/presentation-local-llms/index.html",
+    "href": "posts/presentation-local-llms/index.html",
+    "title": "My Presentation on Local LLMs",
+    "section": "",
+    "text": "LINK TO MY SLIDES"
   },
   {
     "objectID": "posts/obsidian-ollama/index.html",

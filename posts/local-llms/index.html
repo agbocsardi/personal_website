@@ -235,6 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="title">How I Run Local LLMs</h1>
   <div class="quarto-categories">
     <div class="quarto-category">notetaking</div>
+    <div class="quarto-category">llm</div>
     <div class="quarto-category">howto</div>
   </div>
   </div>
@@ -270,6 +271,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<hr>
+<p>UPDATE: I gave a presentation on this, with some updated tooling! Check it out <a href="../../posts/presentation-local-llms/index.html">here</a>!</p>
+<hr>
 <section id="why-bother-setting-this-up" class="level2">
 <h2 class="anchored" data-anchor-id="why-bother-setting-this-up">Why bother setting this up</h2>
 <p>First and foremost, sometimes GitHub Copilot is just not available for your editor. This is how I arrived here, since I started using <a href="https://github.com/posit-dev/positron">Positron</a> as my IDE for all things Python and R, and at the time of writing, you cannot use Copilot in it. Chat I could live without, but the missing the AI code-completion really hurt.</p>
@@ -280,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
 <p>Before diving into setting up your local LLMs, let’s make sure you have the necessary pre-requisites met. First and foremost, you’ll need to have VSCode installed on your machine - this will be the hub where you interact with your LLMs.</p>
 <p>In addition to having a capable code editor, it’s also essential to be not be terrified of working in the terminal. We’re not going to do anything crazy, you don’t have to be a unix-wizard, but we’re gonna rely on some terminal commands during the setup.</p>
-<p>Finally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running larger models, it’s worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues.</p>
+<p>Finally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running smaller models (up to 7B or so), it’s worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues.</p>
 <p>If your machine is equipped with a stronger GPU, you’ll also see a noticeable boost in inference speeds - but if you only have CPU, things will still work, just at a slightly slower pace.</p>
 </section>
 <section id="ollama" class="level2">
@@ -342,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You need to specify which model you want to use like this these for the chat model (under <code>models</code> at the top) and for the code complete model (under <code>tabAutocompleteModel</code>). The only exception is the embedding model, that one doesn’t have a “title” field.</p>
 <p>An example of a full <code>config.json</code> using the models I mentioned above can be found below, feel free to copy it into your own! It’s the full config file, just with the models adjusted, all the other settings are defaults.</p>
-<div id="0356a237" class="cell" data-execution_count="1">
+<div id="8f496ab9" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>example config.json</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{</span>
