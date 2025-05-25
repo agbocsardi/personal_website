@@ -1,0 +1,366 @@
+/*-- scss:defaults --*/
+
+// Everforest Light Color Palette - Updated to match CSS guide
+$everforest-bg0: #fdf6e3;
+$everforest-bg1: #f6f1dd;
+$everforest-bg2: #f3efda;
+$everforest-bg3: #edead5;
+$everforest-bg4: #e4e1cd;
+$everforest-bg5: #dfdbc8;
+
+$everforest-fg: #5c6a72;
+$everforest-red: #f85552;
+$everforest-orange: #f57d26;
+$everforest-yellow: #bf983d;
+$everforest-green: #899c40;
+$everforest-aqua: #569d79;
+$everforest-blue: #5a93a2;
+$everforest-purple: #b87b9d;
+
+// Light dim variants for more vibrant states
+$everforest-light-red: #f85552;
+$everforest-light-orange: #f57d26;
+$everforest-light-yellow: #bf983d;
+$everforest-light-green: #899c40;
+$everforest-light-aqua: #569d79;
+$everforest-light-blue: #5a93a2;
+$everforest-light-purple: #b87b9d;
+
+// Light dim variants for hover states
+$everforest-light-dim-red: #f1706f;
+$everforest-light-dim-orange: #f39459;
+$everforest-light-dim-yellow: #e4b649;
+$everforest-light-dim-green: #a4bb4a;
+$everforest-light-dim-aqua: #6ec398;
+$everforest-light-dim-blue: #6cb3c6;
+$everforest-light-dim-purple: #e092be;
+
+$everforest-gray0: #a4ad9e;
+$everforest-gray1: #939f91;
+$everforest-gray2: #879686;
+
+// Special background colors for callouts and highlights
+$everforest-bg-visual: #eaedc8;
+$everforest-bg-red: #fbe3da;
+$everforest-bg-green: #f0f1d2;
+$everforest-bg-blue: #e9f0e9;
+$everforest-bg-yellow: #faedcd;
+
+// Base document colors
+$body-bg: $everforest-bg0;
+$body-color: $everforest-fg;
+$link-color: $everforest-light-blue;
+$link-hover-color: $everforest-light-dim-blue;
+
+// Typography
+$font-family-sans-serif: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Hack Nerd Font", "Source Code Pro", "JetBrains Mono", "Fira Code", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+$font-size-root: 1rem;
+$line-height-base: 1.6;
+
+// Headings - using the color progression from the CSS guide
+$headings-color: $everforest-fg;
+$headings-font-weight: 500;
+$h1-font-size: 2.125rem; // 34px
+$h2-font-size: 1.625rem; // 26px
+$h3-font-size: 1.375rem; // 22px
+$h4-font-size: 1.25rem;  // 20px
+$h5-font-size: 1.125rem; // 18px
+$h6-font-size: 1.125rem; // 18px
+
+// Heading colors matching the CSS guide
+$h1-color: $everforest-light-red;
+$h2-color: $everforest-light-orange;
+$h3-color: $everforest-light-yellow;
+$h4-color: $everforest-light-green;
+$h5-color: $everforest-light-aqua;
+$h6-color: $everforest-light-purple;
+
+// Code blocks
+$code-block-bg: $everforest-bg1;
+$code-block-bg-padding: 1rem;
+$code-block-border-left: $everforest-light-green;
+$code-block-border-left-size: 4px;
+$code-block-padding-left: 1rem;
+
+// Inline code
+$code-bg: $everforest-bg2;
+$code-color: $everforest-light-blue;
+
+// Code copy button
+$btn-code-copy-color: $everforest-gray1;
+$btn-code-copy-color-active: $everforest-light-blue;
+
+// Navigation
+$navbar-bg: $everforest-bg1;
+$navbar-fg: $everforest-fg;
+$navbar-hl: $everforest-light-blue;
+
+$sidebar-bg: $everforest-bg0;
+$sidebar-fg: $everforest-fg;
+$sidebar-hl: $everforest-light-green;
+
+// Footer
+$footer-bg: $everforest-bg2;
+$footer-fg: $everforest-fg;
+
+// Table of Contents
+$toc-color: $everforest-fg;
+$toc-font-size: 0.875rem;
+$toc-active-border: $everforest-light-green;
+$toc-inactive-border: transparent;
+
+// Callouts - using the special background colors
+$callout-border-width: 4px;
+$callout-margin-top: 1.5rem;
+$callout-margin-bottom: 1.5rem;
+
+$callout-color-note: $everforest-light-blue;
+$callout-color-tip: $everforest-light-green;
+$callout-color-warning: $everforest-light-yellow;
+$callout-color-caution: $everforest-light-orange;
+$callout-color-important: $everforest-light-red;
+
+// Forms and inputs
+$input-bg: $everforest-bg1;
+$input-border-color: $everforest-bg4;
+$input-focus-border-color: $everforest-light-blue;
+
+// Popover
+$popover-bg: $everforest-bg1;
+$popover-border-color: $everforest-bg3;
+
+// Tables
+$table-bg: transparent;
+$table-accent-bg: $everforest-bg1;
+$table-hover-bg: $everforest-bg2;
+$table-border-color: $everforest-bg3;
+
+// Buttons (Bootstrap variants)
+$primary: $everforest-light-green;
+$secondary: $everforest-gray1;
+$success: $everforest-light-green;
+$info: $everforest-light-blue;
+$warning: $everforest-light-yellow;
+$danger: $everforest-light-red;
+
+// Layout
+$content-padding-top: 2rem;
+
+// Selection and highlighting
+$text-selection-bg: rgba(189, 174, 147, 0.5); // light3 from CSS guide
+$text-mark-bg: rgba(215, 153, 33, 0.4); // light-yellow with transparency
+
+/*-- scss:rules --*/
+
+// Custom styling rules
+body {
+  font-feature-settings: "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Enhanced headings with color progression
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1 {
+  color: #{$h1-color};
+  border-bottom: 2px solid #{$everforest-bg3};
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  color: #{$h2-color};
+  border-bottom: 1px solid #{$everforest-bg3};
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  color: #{$h3-color};
+}
+
+h4 {
+  color: #{$h4-color};
+}
+
+h5 {
+  color: #{$h5-color};
+}
+
+h6 {
+  color: #{$h6-color};
+}
+
+// Enhanced code blocks
+pre {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  code {
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #{$everforest-fg};
+  }
+}
+
+// Inline code styling
+code:not(pre code) {
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+  background-color: #{$code-bg};
+  color: #{$code-color};
+}
+
+// Enhanced blockquotes
+blockquote {
+  border-left: 4px solid #{$everforest-light-blue};
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  background-color: #{$everforest-bg1};
+  padding: 1rem 1rem 1rem 1.5rem;
+  border-radius: 0 4px 4px 0;
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Enhanced tables
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+  th {
+    background-color: #{$everforest-bg2};
+    font-weight: 600;
+    border-bottom: 2px solid #{$everforest-bg3};
+  }
+  
+  td, th {
+    padding: 0.75rem;
+    vertical-align: middle;
+  }
+}
+
+// Navigation enhancements
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #{$everforest-bg3};
+}
+
+// Sidebar enhancements
+.sidebar {
+  border-right: 1px solid #{$everforest-bg3};
+  
+  .sidebar-item-container {
+    .sidebar-item {
+      border-radius: 4px;
+      margin: 2px 0;
+      
+      &:hover {
+        background-color: #{$everforest-bg2};
+      }
+      
+      &.sidebar-item-open {
+        background-color: #{$everforest-bg2};
+      }
+    }
+  }
+}
+
+// Callout enhancements with special background colors
+.callout {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+  &.callout-note {
+    background-color: #{$everforest-bg-blue};
+    border-left-color: #{$callout-color-note};
+  }
+  
+  &.callout-tip {
+    background-color: #{$everforest-bg-green};
+    border-left-color: #{$callout-color-tip};
+  }
+  
+  &.callout-warning {
+    background-color: #{$everforest-bg-yellow};
+    border-left-color: #{$callout-color-warning};
+  }
+  
+  &.callout-caution {
+    background-color: #{$everforest-bg-red};
+    border-left-color: #{$callout-color-caution};
+  }
+  
+  &.callout-important {
+    background-color: #{$everforest-bg-red};
+    border-left-color: #{$callout-color-important};
+  }
+}
+
+// Button enhancements
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Link styling with hover effects
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+  color: #{$link-color};
+  
+  &:hover {
+    text-decoration: underline;
+    color: #{$link-hover-color};
+  }
+}
+
+// Footer styling
+.footer {
+  border-top: 1px solid #{$everforest-bg3};
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+// Selection styling
+::selection {
+  background-color: #{$text-selection-bg};
+}
+
+// Mark/highlight styling
+mark {
+  background-color: #{$text-mark-bg};
+}
+
+// Task list checkboxes
+input.task-list-item-checkbox {
+  border: 1px solid #{$everforest-light-blue};
+  appearance: none;
+  -webkit-appearance: none;
+  
+  &:checked {
+    background-color: #{$everforest-light-blue};
+    box-shadow: inset 0 0 0 2px #{$body-bg};
+  }
+}

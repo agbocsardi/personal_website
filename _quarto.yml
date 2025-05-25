@@ -40,8 +40,10 @@ website:
 format:
   html:
     theme:
-      light: [default, resources/style/light.scss]
-      dark: [default, resources/style/dark.scss]
+      # light: [default, resources/style/light.scss]
+      light: [default, resources/everforest-light.scss]
+      # dark: [default, resources/style/dark.scss]
+      dark: [default, resources/everforest-dark.scss]
     css: resources/style/styles.css
     header-includes: |
       <link rel="preconnect" href="https://fonts.googleapis.com">
