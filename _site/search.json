@@ -1,0 +1,140 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Articles I Wrote",
+    "section": "",
+    "text": "My Presentation on Local LLMs\n\n\n1 min\n\n\nThis page has the materials I showed in my presentation on how to run local LLMs.\n\n\n\nFeb 23, 2025\n\n\n\n\n\n\n\n\n\n\n\nHow I Run Local LLMs\n\n\n9 min\n\n\nIn this article I show you how I set up local LLMs in VSCode. We’ll use them for code completion and chat, right inside your code editor.\n\n\n\nDec 6, 2024\n\n\n\n\n\n\n\n\n\n\n\nChat with your Obsidian vault!\n\n\n5 min\n\n\nIt’s time to start talking to your Obsidian notes.\n\n\n\nDec 6, 2024\n\n\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Check out my work",
+      "Articles I Wrote"
+    ]
+  },
+  {
+    "objectID": "photography.html",
+    "href": "photography.html",
+    "title": "Photography",
+    "section": "",
+    "text": "I was always disproportionately drawn to cameras. The tactile feel, the “gadget-y-ness”, the joy of freezing a snapshot of time. It took me quite a while to take the leap and invest in a nice camera (a Fujifilm X-S20), but it was one of the best investments I have ever made.\nLooking through the pictures of friends and family over the time since I had this camera, my only regret is not buying it earlier.\n\nEDC Experiment\nI am currently experimenting with always carrying a camera.\n\n\n\n\n\n\nAs Matt Stuart said in Think Like a Street Photographer:\n\n\n\n“If you don’t have a camera on you at all times… you’re just someone who saw some stuff and told people about what you saw.”\n\n\n\n\n\nMy pride and joy, the GM1\n\n\nThis little setup is the smallest interchangeable camera ever made, and I paired it with the smallest AF lens for the M43 system, resulting in this absolute cutie of a camera. Still shoots 16MP raw files, about 20MB each! :D\n\n\nVideos\nBelow you can find a few rambles about photography.",
+    "crumbs": [
+      "Get to know me",
+      "Photography"
+    ]
+  },
+  {
+    "objectID": "posts/local-llms/index.html",
+    "href": "posts/local-llms/index.html",
+    "title": "How I Run Local LLMs",
+    "section": "",
+    "text": "UPDATE: I gave a presentation on this, with some updated tooling! Check it out here!"
+  },
+  {
+    "objectID": "posts/local-llms/index.html#why-bother-setting-this-up",
+    "href": "posts/local-llms/index.html#why-bother-setting-this-up",
+    "title": "How I Run Local LLMs",
+    "section": "Why bother setting this up",
+    "text": "Why bother setting this up\nFirst and foremost, sometimes GitHub Copilot is just not available for your editor. This is how I arrived here, since I started using Positron as my IDE for all things Python and R, and at the time of writing, you cannot use Copilot in it. Chat I could live without, but the missing the AI code-completion really hurt.\nAnother significant benefit is the ability to maintain complete control over your work’s privacy - not everything needs or should be uploaded to an API. By running local models you can be sure that no sensitive information leaks out, which comes in handy if you’re working with sensitive data or documents.\nWe have two main objectives to get this up and running. First, you’ll need to host and run the models themselves, which involves setting up the necessary infrastructure to get them up and running. Once that’s taken care of, step two is finding a way of interacting with the LLMs in a way that feels intuitive and natural - whether that’s using them for code completion or engaging in conversation."
+  },
+  {
+    "objectID": "posts/local-llms/index.html#pre-requisites",
+    "href": "posts/local-llms/index.html#pre-requisites",
+    "title": "How I Run Local LLMs",
+    "section": "Pre-requisites",
+    "text": "Pre-requisites\nBefore diving into setting up your local LLMs, let’s make sure you have the necessary pre-requisites met. First and foremost, you’ll need to have VSCode installed on your machine - this will be the hub where you interact with your LLMs.\nIn addition to having a capable code editor, it’s also essential to be not be terrified of working in the terminal. We’re not going to do anything crazy, you don’t have to be a unix-wizard, but we’re gonna rely on some terminal commands during the setup.\nFinally, your machine will need to meet certain hardware requirements. While my own 14-inch M1 Pro MacBook Pro with 16GB of RAM has been more than sufficient for running smaller models (up to 7B or so), it’s worth noting that the amount of RAM on your machine directly impacts how large a model you can run without issues.\nIf your machine is equipped with a stronger GPU, you’ll also see a noticeable boost in inference speeds - but if you only have CPU, things will still work, just at a slightly slower pace."
+  },
+  {
+    "objectID": "posts/local-llms/index.html#ollama",
+    "href": "posts/local-llms/index.html#ollama",
+    "title": "How I Run Local LLMs",
+    "section": "Ollama",
+    "text": "Ollama\nNow that we’ve covered the basics, let’s dive into using Ollama to host and manage our local LLMs.Ollama is an app designed specifically for running and managing local LLMs, and it’s incredibly easy to get started with.\nFirst, head over to the Ollama website and explore the vast library of models available - you’ll find a wide range of sizes and types to suit your needs. Don’t worry if this feels overwhelming, we’re going to tackle model selection in the next section.\nTo begin using Ollama, simply go through the install steps on their website. Once installed, make sure it’s running in the background - this will be our central engine for running and managing our local LLMs.\n\nModel choice\nNow that you have installed Ollama, let’s dive into choosing a suitable model for your needs. This is where things get a bit more subjective, as the ideal model will depend on your personal preferences and use cases.\nWhen selecting a model, you’ll need to find one that balances two key factors: size (in terms of parameters) and performance (inference speed). On one hand, a larger model will generally be more capable and useful, but it may also consume more resources and take longer to reply. Conversely, a smaller model, while faster to reply, but might struggle with more complex tasks.\nYou’ll likely want to have different models for various purposes, in our case, code completion, chat, and embeddings. Let’s take a closer look at each of these categories:\n\nCode Completion\nFor code completion, my personal preference is speed over depth. I just want to avoid retyping lines for multiple calls, and any decent model should be able to handle this efficiently.\nI’ve found that the qwen2.5-coder:1.5b model from Ollama’s library is pretty good for code completion. It has other varieties with larger models (3B) that are still reasonable-sized for completion on a stronger consumer machine, but for the basics, the 1.5B flavor is plenty.\n\n\nChat\nWhen it comes to chat, things get more nuanced. You’ll need to like the “vibe” of the model and find one that gives you the types of answers you’re looking for.\nFor small models, I recommend checking out phi3.5:3.8b, which is Microsoft’s take on Small Language Models. They’ve curated the training data carefully, resulting in a pretty cool chat experience for such a lightweight model.\nIf you prefer larger models, consider using llama3.1:8b, which is Meta’s top-of-the-line open source Llama model, the 8B parameter version. This should use around 6-7GBs of RAM while generating, so keep this in mind when running multiple models together. This model is the one I use for most of my work.\n\n\nEmbeddings\nFinally, for embeddings, I simply used the one that Ollama recommends: nomic-embed-text. It worked reasonably well for RAG-style tasks, so I didn’t need to experiment further than this.\nFor the remainder of the tutorial, I’ll assume that you are using qwen2.5-coder:1.5b, phi3.5:3.8b and nomic-embed-text. \nCode to download them:\nollama pull qwen2.5-coder:1.5B\nollama pull phi3.5:3.8b\nollama pull nomic-embed-text\n\n\n\nOllama cheatsheet\nSome useful commands to know:\n\nlist all available models: ollama list\nshow currently running models: ollama ps\nremove model: ollama rm {model name without brackets}\nrun model in command line: ollama run {model name without brackets}"
+  },
+  {
+    "objectID": "posts/local-llms/index.html#continue.dev",
+    "href": "posts/local-llms/index.html#continue.dev",
+    "title": "How I Run Local LLMs",
+    "section": "Continue.dev",
+    "text": "Continue.dev\nNow that you have set up your engine for running the models locally, I’d like to introduce you to another powerful tool: Continue.dev.\nContinue.dev is an open-source AI code assistant designed specifically for VSCode (and JetBrains, too!). It offers a range of features to help with coding tasks. To get started, refer to the Continue.dev documentation and follow the installation instructions for VSCode. Note that during setup, you may encounter requests to configure API connections; since we’re running our LLMs locally, these can be skipped.\nJust keep in mind that when setting up Continue.dev, you might encounter some API setup requests, but we can skip those since we’re running our LLMs locally.\n\nSetup of Continue\nEverything happens in the config.json file that you can open by clicking the little cog in the corner of the continue pane.\nNow, if you’re unfamiliar with JSON, this might be scary, but it’s not as bad as it looks. Let’s go through it together:\nYou specify model objects here, that look like this:\n    {\n      \"title\": \"Big Llama = Whatever name you want to give your model \",\n      \"model\": \"llama3.1:8b = Name of the model, exactly as seen in 'ollama list'. You have to use the colons with the weight too!\",\n      \"provider\": \"ollama = This tells Continue that it should look for a local model.\"\n    }\nYou need to specify which model you want to use like this these for the chat model (under models at the top) and for the code complete model (under tabAutocompleteModel). The only exception is the embedding model, that one doesn’t have a “title” field.\nAn example of a full config.json using the models I mentioned above can be found below, feel free to copy it into your own! It’s the full config file, just with the models adjusted, all the other settings are defaults.\n\n\nexample config.json\n{\n  \"models\": [\n  \n    {\n      \"title\": \"Phi 3.5\",\n      \"model\": \"phi3.5:3.8b\",\n      \"provider\": \"ollama\"\n    },\n    // i included a commented other model, so you can see how you can have multiple chat models. you can even switch between them!\n    // {\n    // \"title\": \"Big Llama\",\n    // \"model\": \"llama3.1:8b\",\n    // \"provider\": \"ollama\"\n    // },\n  ],\n\n  \"tabAutocompleteModel\": \n  {\n    \"title\": \"qwen2.5-coder:1.5b\",\n    \"provider\": \"ollama\",\n    \"model\": \"qwen2.5-coder:1.5b\"\n  }\n  ,\n  \"tabAutocompleteOptions\": {\n    \"multilineCompletions\": auto,\n  },\n\n  \"embeddingsProvider\": {\n    \"provider\": \"ollama\",\n    \"model\": \"nomic-embed-text\"\n  }\n  ,\n\n  \"customCommands\": [\n    {\n      \"name\": \"test\",\n      \"prompt\": \"{{{ input }}}\\n\\nWrite a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give the tests just as chat output, don't edit any file.\",\n      \"description\": \"Write unit tests for highlighted code\"\n    }\n  ],\n  \"contextProviders\": [\n    {\n      \"name\": \"code\",\n      \"params\": {}\n    },\n    {\n      \"name\": \"docs\",\n      \"params\": {}\n    },\n    {\n      \"name\": \"diff\",\n      \"params\": {}\n    },\n    {\n      \"name\": \"terminal\",\n      \"params\": {}\n    },\n    {\n      \"name\": \"problems\",\n      \"params\": {}\n    },\n    {\n      \"name\": \"folder\",\n      \"params\": {}\n    },\n    {\n      \"name\": \"codebase\",\n      \"params\": {}\n    }\n  ],\n  \"slashCommands\": [\n    {\n      \"name\": \"share\",\n      \"description\": \"Export the current chat session to markdown\"\n    },\n    {\n      \"name\": \"cmd\",\n      \"description\": \"Generate a shell command\"\n    },\n    {\n      \"name\": \"commit\",\n      \"description\": \"Generate a git commit message\"\n    }\n  ]\n}\n\n\n\n\nUsing Continue\nI think the Continue Docs do a great job of introducing themselves, so I won’t try to do one better. Most things they do is quite close to Github Copilot, so if you’re familiar with that, you’ll feel right at home."
+  },
+  {
+    "objectID": "posts/local-llms/index.html#summary",
+    "href": "posts/local-llms/index.html#summary",
+    "title": "How I Run Local LLMs",
+    "section": "Summary",
+    "text": "Summary\nI hope this tutorial gave you can help expand your horizons in what’s possible with locally hosted LLMs!"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "About my research",
+    "section": "",
+    "text": "I am endlessly fascinated by graphs and networks, and my PhD projects explores using them in the field of management!\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Check out my work",
+      "About my research"
+    ]
+  },
+  {
+    "objectID": "posts/presentation-local-llms/index.html",
+    "href": "posts/presentation-local-llms/index.html",
+    "title": "My Presentation on Local LLMs",
+    "section": "",
+    "text": "LINK TO MY SLIDES"
+  },
+  {
+    "objectID": "posts/obsidian-ollama/index.html",
+    "href": "posts/obsidian-ollama/index.html",
+    "title": "Chat with your Obsidian vault!",
+    "section": "",
+    "text": "In my previous post I outlined how to set up Ollama and Continue to create a Copilot-like experience entirely local. The main focus of that article was coding, but I have a second usecase for this stack, that is much more exciting."
+  },
+  {
+    "objectID": "posts/obsidian-ollama/index.html#motivation",
+    "href": "posts/obsidian-ollama/index.html#motivation",
+    "title": "Chat with your Obsidian vault!",
+    "section": "Motivation",
+    "text": "Motivation\nThe motivation behind this integration is that all my notes are stored in Obsidian, in plain old Markdown format. This simplicity has a significant advantage: I can interact with them programmatically. For instance, I can change the formatting of all my notes on a whim (hello/goodbye Zettelkasten) or perform other custom actions on them.\nI realized that I can use Continue’s Context Selection tools to equip a local LLM with the info from my notes!\nI will assume that you followed all the steps from the previous post, and have a working Ollama + Continue stack in VSCode, alongside an Obsidian vault you want to talk to.\nThis post is going the be a brief demo of some of the features I think are the coolest usecases. I am quite new to this myself, so if you have other usecases, I’d love to hear!"
+  },
+  {
+    "objectID": "posts/obsidian-ollama/index.html#setup",
+    "href": "posts/obsidian-ollama/index.html#setup",
+    "title": "Chat with your Obsidian vault!",
+    "section": "Setup",
+    "text": "Setup\nFirst and foremost, open up your Obsidian vault’s folder in VSCode.\nI recommend turning code completion off for this (Continue: Toggle Autocomplete in the command palette), since Continue will try to “complete” any text you write :D\nThen navigate to your detailed Continue options, either through the three dots besides the cog in the chat window, or open your command palette (cmd+shift+P) and type Continue: More.\nThe magic happens in the @codebase index: \nThis is where you can create an index of your entire “codebase”, in our case, your Obsidian vault. Once you indexed it, it has created a locally stored embedding of all your notes."
+  },
+  {
+    "objectID": "posts/obsidian-ollama/index.html#how-it-works",
+    "href": "posts/obsidian-ollama/index.html#how-it-works",
+    "title": "Chat with your Obsidian vault!",
+    "section": "How it works",
+    "text": "How it works\nFrom here on, you can use any of the Context Selection tools in Continue to work from.\nA few notable ones:\n\n@File\nThis way you can reference any file in your vault, and pass it on as context. Particularly useful when you want to give an example file to the model to work from:\n\n\n\n@Folder\nPass an entire folder as context! I like to use this in conjunction with my literature notes from Zotero, to find my my notes on papers that talk about a given topic:\n\n\n\n@Codebase\nYou can invoke this by sending a chat message with cmd+Enter in the chat window. Using this, the model will look through your entire indexed codebase to use for the answer. Important to keep in mind, that this doesn’t use the entire codebase as context: rather, it retrieves the files that it deems most useful, and uses those as direct context for the model reply.\n\nA few examples for usecases can be found at the Continue docs about @Codebase, but en general this tool is more for high level overviews rather than “find every typo in my codebase” type of tasks."
+  },
+  {
+    "objectID": "posts/obsidian-ollama/index.html#how-to-tweak",
+    "href": "posts/obsidian-ollama/index.html#how-to-tweak",
+    "title": "Chat with your Obsidian vault!",
+    "section": "How to tweak",
+    "text": "How to tweak\n\nCustomise RAG\nYou can customize some of the RAG behavior through your config.json. Detailed descriptions can be found at the docs, but the gist is that when using folders or the codebase as context, Continue retrieves a larger number of relevant documents initially, then reranks them to find the the most fitting ones, and uses those as context. This way it “narrows down” the request twice, focusing only on the most relevant files.\nOne of the reasons for this is to conserve as much of the context window (previous chats, your input, etc), but whether this tradeoff is worth it for you, you can decide yourself. By tweaking some of the parameters, you can adjust this behavior nicely (even separately for @Folder and @Codebase)!\n\n\nCustom slash-commands\n\n\n\n\n\n\nUnder construction\n\n\n\nAt the time of writing (2024.12.06) I couldn’t figure out how to get the responses from the LLM into the chat window properly. I’m not sure if I’m missing something, or if it’s a bug with Continue, will update as I learn more.\n\n\nA cool tool is what they call “slash-commands”. These are shorthands you can use in the chat to use templated prompts for specific purposes, such as /share which exports your chat conversation to a markdown file, or /test which writes unit tests for your selected function.\nContinue enables you to fully customize your slash commands. This means you can define your own shorthands!\nOne of my workflows is writing nested bulletpoint lists as drafts for documents, this helps me figure out my thinking, and quickly reorganize them as needed. However, after the draft is done, there is still the task of writing that out as text. I like to use LLMs to generate a first version of text, that I can start editing to my taste.\nHere’s a custom command that enables me to very quickly expand bulletpoints to sentences:\ncustomCommands=[{\n        \"name\": \"expand\",\n        \"description\": \"Expand selection to paragraphs\",\n        \"prompt\": \"{{{ input }}}\\n\\nPlease read the highlighted bulletpoints and expand them into fluid text. You should always respect the indentation in nested lists as hierarchy in the text. \\nYou should always stick to factual information in the bulletpoints. \\nMake sure the tone of the text you write is coherent with the rest of the document.\"\n}]"
+  },
+  {
+    "objectID": "posts/obsidian-ollama/index.html#summary",
+    "href": "posts/obsidian-ollama/index.html#summary",
+    "title": "Chat with your Obsidian vault!",
+    "section": "Summary",
+    "text": "Summary\nI think this opens up a world of possibilities when it comes to interacting with your notes! I found that this is quite a natural way for me to intergrate LLMs with my Obsidian notes, and I’m only getting started!\nLet me know if this sparked any ideas, and happy tinkering!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hello there!",
+    "section": "",
+    "text": "Yours truly\n\n\n\n\nI’m Gergő. I’m from Hungary and I’m currently doing my PhD at JADS in the Netherlands.\nHere you will mostly find my thoughts about things I find interesting, be it personal or professional. I like to think the spice of life is following my curiosity, so if you find the topics chaotic, you have been warned.\nFind out more about my research here, or check out some of my blogposts!"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Hello there!",
+    "section": "",
+    "text": "Yours truly\n\n\n\n\nI’m Gergő. I’m from Hungary and I’m currently doing my PhD at JADS in the Netherlands.\nHere you will mostly find my thoughts about things I find interesting, be it personal or professional. I like to think the spice of life is following my curiosity, so if you find the topics chaotic, you have been warned.\nFind out more about my research here, or check out some of my blogposts!"
+  }
+]

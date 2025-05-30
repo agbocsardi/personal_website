@@ -1,0 +1,14 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/presentation-local-llms/index.html",
+      "/posts/local-llms/index.html",
+      "/posts/obsidian-ollama/index.html"
+    ]
+  },
+  {
+    "listing": "/research.html",
+    "items": []
+  }
+]
