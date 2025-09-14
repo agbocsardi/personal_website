@@ -1,0 +1,72 @@
+---
+title: "Why and How I Moved to DuckDB"
+description: "Recently I decided to leave behind pandas, polars, data.table, tibbles and so many more frameworks for SQL. This post goes into the why and the how."
+author: "Gergő Bocsárdi"
+date: "2025-09-13"
+date-modified: "2025-09-13"
+draft: true
+
+categories: 
+  - all-things-data
+  - howto
+  - research
+
+
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+---
+
+As quantitative researchers, working with data is the one thing to rule us all (and the one thing to bind us). Doesn't matter if you're a pythonista, a tidyverse-enjoyer or a die-hard base-R afficionado, you will have to clean and process data at some point. 
+
+I also noticed the _very_ strong preferences people have around their chosen flavour of data processing, so in this blogpost, I will attempt to propose something that may upset all of the above groups: **maybe you should just use SQL**.
+
+Okey, okey, before you bring out the pitchforks, just hear me out, maybe I can convince you, and even if not, I will still make a case for using DuckDB alongside your preferred way of data-wrangling. There is something in here for everone. 
+
+## My background
+
+For all of this to make sense, and to make you aware of my biases, I want to elaborate a bit on where I came from, data-wise. I arrived to programming through an undergraduate degree in mathematics, with a specialization in data science. 
+
+We started off with essentially translating materials from our "Algorithms" course into Python, then proceeded to do some light statistical work in R, an "Intro to databases" course showed us some SQL, and we even wrote some rudimentary C++ with pen and paper. All this is to say, I don't come from a particularly code-heavy tradition, such as computer science (I still find OOP super disorienting), but rather a jupyter-notebook-wielding procedural-scripting what-even-is-a-compiler tradition.
+
+As I went through my education I used mostly Python and Pandas for my data needs, occasionally dabbling with R when I really needed to. Currently, during my PhD, most of the coding I do is in R (networks are a distinctly R-based field), but I still make excursions into PyTorch land occasionally, mostly for Graph Neural Networks.
+
+However, as my PhD project is in collaboration with a large industry partner, I found myself in the Snowflake web-UI, with an SQL worksheet in front of me, feeling a bit more than lost. The (re-)learning curve of SQL was quite steep, from terrible query efficiency to unreadable code, but over time my skills improved, and I became more and more comfortable writing clean, performant SQL code.
+
+## So where is the problem?
+
+All of the above tools worked just fine for a while for me, and within their scope, they still would! The problem crept in when the time came to switch between them on a regular, and quite frequent basis.
+
+- A deep-dive exploration of a cryptic schema in Snowflake? ==> SQL!
+- Making a visualization in a Databricks notebook? ==> Pandas/PySpark/Polars!
+- Cleaning data for a regression analysis? ==> Base-R!
+
+While I am familiar with all of the syntaxes of the tools above, the slight differences in how they expect you to think about data, and how they designed their APIs made this switching process super annoying, not to mention also slow, since the speed at which I was able to write code for any of these massively suffered from "wait how do I rename a column again?" trips to various documentations.
+
+
+## How a small bird changed it all
+
+Then I discovered DuckDB. I was browsing through the PositConf 2024 talks (as one does), and ran into the following video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GELhdezYmP0?si=_GW3CkxmPCm2r56S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+I highly recommend giving it a watch, if you're interested in how and why DuckDB was made! I was definitely enticed, the performance implications, the "cool tool by cool people" effect and the promise of one syntax to rule them all (can you tell that I am freshly out of a LOTR marathon? :D).
+
+DuckDB essentially is a database engine that is tailored for analytical operations. This means that aggregations and transformations are a first class citizen here (as opposed to say SQLite which is more transaction-heavy and storage-focused). It allows you to ingest right about any data format you could wish for, and then run queries against it using PostreSQL syntax (with some extras) or through one of the client APIs. 
+
+One could wonder, why would I use SQL, this archaic, outdated language, when I can use *whatever my favorite package is*? There is an argument to be made (I actually made it [in this video](https://youtu.be/n_awKyEm7W4)) for using older, more mature technology, as it is more developed, we understand it better and the resources/toolchains are more and better. Understandably this doesn't appeal to everyone, and to them I would point to the previous section on syntax plurality. Getting used to SQL means that you'll be able to consistently use it in any language, and in any database, without having to constantly look up arbitrary keywords. 
+
+But alas, even if you despise SQL, I would argue that DuckDB has something for you too. It has a [drop-in replacement for `dplyr`](https://duckplyr.tidyverse.org) in R, so all you tidyverse enjoyers can also benefit from the speed! In Python, it integrated with [`pandas`](https://duckdb.org/docs/stable/guides/python/import_pandas), [`numpy`](https://duckdb.org/docs/stable/guides/python/import_numpy) and [`polars`](https://duckdb.org/docs/stable/guides/python/polars), and it even provides a way to execute [arbitrary Python functions inside your database](https://duckdb.org/docs/stable/clients/python/function), without having to pull the data outside of the DB!
+
+
+After giving DuckDB a try, I can concur with many before me, that DuckDB is as close to magic as you can get computing-wise in 2025. The design of every little part of the software just makes you feel seen, you can really tell that the authors have been around the block when it comes to all things data!
+
+Just to name a few things:
+
+- They have an [insanely good CSV reader](https://duckdb.org/2025/04/16/duckdb-csv-pollock-benchmark.html), it is light-speed fast compared to competitors, and the sniffing is mind-blowingly good, meaning you'll likely never have to fight your way through type-errors or parsing problems.
+- Their [documentation](https://duckdb.org/docs/stable/) is delightful, clean, fast, easy to use.
+- Their client-APIs (this is how you can use it from Python or R, more on this below) really feel made for the languages, it aligns with the ways of thinking, making it a very seamless experience.
+- The [built-in functions](https://duckdb.org/docs/stable/sql/functions/overview) are amazing, and they essentially replaced a lot of dependencies for me with their wide coverage (vector operations, spatio-temporal stuff, etc).
+
+At first I actually considered writing up a mini-tutorial here, but anything I tried came up short, compared to [the guides that they provide in the original docs](https://duckdb.org/docs/stable/guides/overview). I hope that this post made you curious about a better way of managing and analysing data!

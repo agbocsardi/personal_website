@@ -1,5 +1,5 @@
 ---
-title: "Articles I Wrote"
+title: "Blogposts I Wrote"
 listing:
   contents: posts
   fields: [date, title, description, reading-time]

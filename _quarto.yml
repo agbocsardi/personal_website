@@ -5,6 +5,7 @@ website:
   title: " Gergő Bocsárdi | <sub> <sup> data science, networks & a sprinkle of chaos </sup> </sub>" 
   favicon: resources/logo.png
   description: "data science, networks & a sprinkle of chaos"
+  draft-mode: unlinked
 
 
   navbar:
@@ -14,8 +15,6 @@ website:
     tools:
       - icon: share
         href: https://bsky.app/profile/agbocsardi.com
-      - icon: instagram
-        href: https://www.instagram.com/gergo.jpeg/
       - icon: youtube
         href: https://www.youtube.com/@agbocsardi
 
