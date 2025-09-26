@@ -4,22 +4,32 @@ on:
   workflow_dispatch:  # Allow manual triggers
   push:
     branches:
-      - deployment  # ONLY trigger on pushes to the deployment branch (not main)
+      - main  # ONLY trigger on pushes to the deployment branch (not main)
 
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout deployment branch
-        uses: actions/checkout@v4
-        with:
-          ref: deployment  # Explicitly check out the deployment branch
 
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/  # Your FTP target directory
-          local-dir: ./  # Deploy ALL files in the deployment branch (since it only contains _site)
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Quarto
+      uses: quarto-dev/quarto-actions/setup@v2
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Render Quarto Project
+      uses: quarto-dev/quarto-actions/render@v2
+      with:
+        to: html  # This will render the project to HTML
+        path: .  # Use the current working directory
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /public_html/  # Your FTP target directory
+        local-dir: ./_site/  # Deploy ALL files in the deployment branch (since it only contains _site)

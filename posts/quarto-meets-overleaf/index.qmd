@@ -16,9 +16,7 @@ format:
     code-overflow: wrap
 ---
 
-I really have committed to Quarto as one-tool-to-rule-them-all over the last year or so. I write my papers in Quarto, I make my presentation slides in Quarto, I even write this entire blog in Quarto! 
-
-The convenience of only having to learn and maintain one tool for all of these jobs has been a great blessing, but it is not without it's drawbacks. Then main one being *collaboration*. 
+I really have committed to Quarto as one-tool-to-rule-them-all over the last year or so. I write my papers in Quarto, I make my presentation slides in Quarto, I even write this entire blog in Quarto! The convenience of only having to learn and maintain one tool for all of these jobs has been a great blessing, but it is not without it's drawbacks. Then main one being *collaboration*. 
 
 While Quarto is great for solo projects, and even git-savvy collaborators could make do, the gold standard of academic collaborative writing is still Latex in Overleaf (please don't drag MSWord or GDocs into this).
 
