@@ -1,0 +1,59 @@
+---
+title: "Quarto Meets Overleaf (finally)"
+description: "This post is the result of some hard digging trying to eat my cake (use nice Quarto projects) and have it too (get feedback from my supervisors on writing without emailing PDFs)."
+author: "Gergő Bocsárdi"
+date: "2025-09-26"
+date-modified: "2025-09-26"
+draft: false
+
+categories: 
+  - howto
+
+
+format:
+  html:
+    toc: true
+    code-overflow: wrap
+---
+
+I really have committed to Quarto as one-tool-to-rule-them-all over the last year or so. I write my papers in Quarto, I make my presentation slides in Quarto, I even write this entire blog in Quarto! 
+
+The convenience of only having to learn and maintain one tool for all of these jobs has been a great blessing, but it is not without it's drawbacks. Then main one being *collaboration*. 
+
+While Quarto is great for solo projects, and even git-savvy collaborators could make do, the gold standard of academic collaborative writing is still Latex in Overleaf (please don't drag MSWord or GDocs into this).
+
+My solution for quick, one-off checks was to just export a nice PDF, and send it over email, and get it back annotated, but this gets incredibly tedious for both parties. I also missed the nice, in-editor comments of Overleaf, and it is still the comfortable environment for both of my supervisors, so I wanted to find a way to get back to it.
+
+My initial attempt was to use Quarto's `keep-tex: true` flag to get the full Latex source, perhaps I can use it?
+
+Of course, it turned into misery, because trying to merge feedback on the writing in the massive Latex file back into my nicely delineated markdown components is too high a price to pay.
+
+## The Solution (and the caveat)
+
+I am happy to announce that I have found a solution that works perfectly for me!
+
+It relies on the [Overleaf GitHub Sync](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github) feature, with some added tweaks.
+
+The core idea is that you can connect your Overleaf project to a GitHub repo, and push/pull any changes made on the text both directions. This works great out of the box for Latex files, but my Quarto project needed some extra love.
+
+I will make a few assumptions about the project:
+
+1. You have a GitHub repository (public or private) with all your QMD notebooks that you want to collaborate on
+2. You don't need to executed code output for the feedback
+3. You are fine pushing/pulling and rendering offline
+
+1 is fairly obvious, you just need a shared spot between Overleaf and your local project directory. This could in theory also work with the (not at all confusing) [Overleaf Git Integration](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/git) which turns your Overleaf project folder into a Git repo, but I have not tested that, YMMV.
+
+2 is a bit more tricky. In some cases this might be essential (for example writing a results section), in those cases I would honestly just check in a PDF version of the latest computational output into the repo, it's not elegant, but it works. I found that I need most of the feedback on the pure text parts of my papers (the theory section), so this have not been a bottleneck for me. Just bear in mind that this way your collaborators will only be able to edit the source code, and that means no access to the pretty output.
+
+3 in my opinion is the least of the issues. Overleaf gives you a minimal Git UI, it has a "pull changes" and a "push changes" button, and it will be up to you to keep up with this to best avoid conflicts. The [documentation](https://docs.overleaf.com/integrations-and-add-ons/git-integration-and-github-synchronization/github) is quite helpful in explaining that the GitHub integration is completely branch-agnostic (it will just operate on the main branch), but in case of merge conflicts it will create a "descriptively named branch that will allow you to resolve the conflict elsewhere". It is probably the best if you just keep on top of pushing and pulling, but if (when) a merge conflict happens, you'll want to deal with that locally.
+
+## The hack
+
+Unfortunately for all of this to work, you'll need to do some less than elegant manual labor. Overleaf states that it can preview any plain text files, but it will not allow for editing of them, **unless they were created in the Overleaf project**. 
+
+This took a while to figure out, but the solution is rather simple: after you import your GitHub repo to Overleaf, you have to individually recreate the `qmd` files you want to collaborate on using the UI. It sounds silly, but it works: delete the old `intro.qmd`, use the Overleaf UI to create a new `intro.qmd`, then using the Overleaf editor paste the contents back into it. Rinse and repeat for all your manuscript files, and voila, magically everything is editable!
+
+I was worried that GitHub would freak our or something, but no, everything worked perfectly afterwards, so it really is just a minor annoyance to have to do it by hand.
+
+I really hope that this can serve as a guide to get the best of both worlds until the amazing people at Posit roll out their own quarto collab feature.
