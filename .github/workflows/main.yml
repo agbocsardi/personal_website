@@ -1,20 +1,19 @@
 name: Publish to FTP
 
 on:
-  workflow_dispatch:
-  page_build:
+  workflow_dispatch:  # Allow manual triggers
   push:
     branches:
-      - main
+      - deployment  # ONLY trigger on pushes to the deployment branch (not main)
 
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: Checkout deployment branch
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: deployment  # Explicitly check out the deployment branch
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -22,5 +21,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/  # Adjust this path as needed
-          local-dir: ./_site/
+          server-dir: /public_html/  # Your FTP target directory
+          local-dir: ./  # Deploy ALL files in the deployment branch (since it only contains _site)
