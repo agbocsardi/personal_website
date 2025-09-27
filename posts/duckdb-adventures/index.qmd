@@ -4,7 +4,7 @@ description: "Recently I decided to leave behind pandas, polars, data.table, tib
 author: "Gergő Bocsárdi"
 date: "2025-09-13"
 date-modified: "2025-09-13"
-draft: true
+draft: false
 
 categories: 
   - all-things-data
@@ -18,11 +18,11 @@ format:
     code-overflow: wrap
 ---
 
-As quantitative researchers, working with data is the one thing to rule us all (and the one thing to bind us). Doesn't matter if you're a pythonista, a tidyverse-enjoyer or a die-hard base-R afficionado, you will have to clean and process data at some point. 
+As quantitative researchers, working with data is the one thing to rule us all (and the one thing to bind us). Doesn't matter if you're a pythonista, a tidyverse-enjoyer or a die-hard base-R aficionado, you will have to clean and process data at some point. 
 
 I also noticed the _very_ strong preferences people have around their chosen flavour of data processing, so in this blogpost, I will attempt to propose something that may upset all of the above groups: **maybe you should just use SQL**.
 
-Okey, okey, before you bring out the pitchforks, just hear me out, maybe I can convince you, and even if not, I will still make a case for using DuckDB alongside your preferred way of data-wrangling. There is something in here for everone. 
+Okey, okey, before you bring out the pitchforks, just hear me out, maybe I can convince you, and even if not, I will still make a case for using DuckDB alongside your preferred way of data-wrangling. There is something in here for everyone. 
 
 ## My background
 

@@ -1,6 +1,5 @@
 /.quarto/
-/_freeze/
-/_site/
+_freeze/
 
 **/*.quarto_ipynb
 _site
