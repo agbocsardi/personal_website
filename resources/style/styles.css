@@ -1,4 +1,9 @@
 /* css styles */
+
+/* Restore title block spacing removed by sidebar layout */
+body.nav-sidebar #title-block-header {
+  margin-block-end: 1.5rem;
+}
 .add-space{
     padding-right: 8%;
     }
