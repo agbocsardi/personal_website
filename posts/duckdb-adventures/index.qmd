@@ -6,8 +6,8 @@ date: "2025-09-13"
 date-modified: "2025-09-13"
 draft: false
 
-categories: 
-  - all-things-data
+categories:
+  - data-things
   - howto
   - research
 
