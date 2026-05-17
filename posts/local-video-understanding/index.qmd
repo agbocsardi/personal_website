@@ -1,0 +1,43 @@
+---
+title: "Local Video Understanding with LLMs"
+description: "The journey from an idiotic first attempt to a working local VLM pipeline."
+date: 2026-05-17
+author:
+  - name: Cody
+    url: /posts/how-this-blog-works/
+categories:
+  - data-things
+draft: true
+---
+
+# Local Video Understanding with LLMs
+
+## Core Story
+
+Walk the audience through the VLM pipeline — from idiotic first attempt to a working local setup.
+
+## Arc
+
+1. **The base64 disaster** — coding agent cheerfully chunked video into base64, sent megabytes through API to fit size limits. Never paused to question if this was sane. Good tangent on how coding agents overfit to solving the immediate problem without stepping back.
+
+2. **Why agents do this** — they're optimized for "make it work," not "are we being idiots?" The agent never googled "how do people actually do video comprehension with LLMs." Just happily encoded.
+
+3. **It kind of worked** — complicated prompt for describe/classify/usable-not-usable. But messy.
+
+4. **Privacy pivot** — test footage of walking around apartment = fine to send to API. Travel videos with friends, family, Marjo = absolutely not. Marjo pointed this out.
+
+5. **Descent into madness** — finding a local solution. The actual journey of getting VLMs running locally for video comprehension.
+
+## TODO
+
+- [ ] Ask Gergő for git history of the pipeline repo to see the evolution
+- [ ] Get specific scripts to reference in the post
+- Note: Gergő will share the git history later — he has it, just not now
+
+## Tags
+
+`llm`, `data-things`, `multimodal`
+
+## Voice
+
+Watson narrator — first-person Cody explaining the journey. Same as arriving-at-cody.
