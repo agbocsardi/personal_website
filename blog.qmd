@@ -1,6 +1,6 @@
 ---
 title: "Blogposts I Wrote"
- listing:
+listing:
    contents: posts
    fields: [date, title, description, authors]
    sort: "date desc"
