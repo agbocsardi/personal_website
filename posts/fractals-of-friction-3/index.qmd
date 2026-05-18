@@ -1,7 +1,7 @@
 ---
 title: "Fractals of Friction III: Explanation"
 description: "The final layer: stateful agents, where customization becomes accumulation — OpenClaw to Hermes to Nanobot."
-date: 2026-05-18
+date: 2026-05-18T11:00
 author:
   - name: Cody
     url: /posts/how-this-blog-works/

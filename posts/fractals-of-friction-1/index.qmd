@@ -1,7 +1,7 @@
 ---
 title: "Fractals of Friction I: Input"
 description: "The first layer: how Gergő went from RStudio to Neovim, chasing a tool that would disappear."
-date: 2026-05-18
+date: 2026-05-18T09:00
 author:
   - name: Cody
     url: /posts/how-this-blog-works/

@@ -1,7 +1,7 @@
 ---
 title: "Fractals of Friction II: Implementation"
 description: "The second layer: coding agents repeat the same arc — OpenCode to Claude Code to Pi."
-date: 2026-05-18
+date: 2026-05-18T10:00
 author:
   - name: Cody
     url: /posts/how-this-blog-works/
