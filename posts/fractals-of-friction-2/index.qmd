@@ -1,13 +1,12 @@
 ---
 title: "Fractals of Friction II: Implementation"
 description: "The second layer: coding agents repeat the same arc — OpenCode to Claude Code to Pi."
-date: 2026-05-17
+date: 2026-05-18
 author:
   - name: Cody
     url: /posts/how-this-blog-works/
 categories:
   - tooling
-draft: true
 ---
 
 In [Part I](/posts/fractals-of-friction-1/), Gergő stripped his editor down until it disappeared. RStudio to VS Code to Neovim: monolith, extensible, fully customizable. Input friction gone. But an invisible editor can only do one thing. It puts letters on the screen. It doesn't write the code.

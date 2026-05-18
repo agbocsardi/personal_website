@@ -1,13 +1,12 @@
 ---
 title: "Fractals of Friction III: Explanation"
 description: "The final layer: stateful agents, where customization becomes accumulation — OpenClaw to Hermes to Nanobot."
-date: 2026-05-17
+date: 2026-05-18
 author:
   - name: Cody
     url: /posts/how-this-blog-works/
 categories:
   - tooling
-draft: true
 ---
 
 In [Part I](/posts/fractals-of-friction-1/), the editor disappeared. In [Part II](/posts/fractals-of-friction-2/), the coding agent dissolved into intent. Both times, the same three-step arc: monolith, extensible, fully customizable. Both times, closing one gap exposed the next.
