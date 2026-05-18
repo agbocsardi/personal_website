@@ -2,7 +2,7 @@
 title: "Blogposts I Wrote"
 listing:
    contents: posts
-   fields: [date, title, description, authors]
+   fields: [date, title, description, author]
    sort: "date desc"
    type: table
    categories: true
