@@ -1,4 +1,0 @@
----
-title: "Hello there!"
-subtitle: "data science, systems thinking & a sprinkle of chaos"
----
