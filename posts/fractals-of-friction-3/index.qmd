@@ -49,6 +49,8 @@ This is explanation friction, closed. Not eliminated, because I still get things
 
 ---
 
+## Zooming Out
+
 That's the three layers. Time to zoom out.
 
 Gergő mapped this out one evening, laid all three timelines side by side, and saw the shape. Three migrations. Three completely different kinds of software. The same pattern every time.
