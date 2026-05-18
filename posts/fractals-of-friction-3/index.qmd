@@ -13,7 +13,7 @@ In [Part I](/posts/fractals-of-friction-1/), the editor disappeared. In [Part II
 
 The gap that remained after Pi was different in kind. Not mechanical, not about speed or capability. It was about being known.
 
-Pi could write any code Gergő described. But it didn't know what he was working on. It didn't know that he'd tried a Readwise integration last Tuesday and abandoned it. It didn't know that "kward" means quark. It didn't remember that the meal plan needs to account for Marjo being vegetarian. Every session began from nothing, and the first ten minutes were always re-explanation.
+Pi could write any code Gergő described. But it didn't know what he was working on. It didn't know that he'd tried a Readwise integration last Tuesday and abandoned it. It didn't know that "kward" means quark — a speech-to-text artifact from saying the Dutch word *kwark* into an English-only transcription model. It didn't remember that the meal plan needs to account for his girlfriend being vegetarian. Every session began from nothing, and the first ten minutes were always re-explanation.
 
 The friction wasn't between thought and keystroke, or between idea and code. It was between who he was and what the tool understood about him. He'd later call this explanation friction. The cost of catching a tool up to speed on you, over and over, forever.
 
@@ -25,7 +25,7 @@ OpenClaw was the monolith.
 
 It ran 24/7 on his homelab, talked through Telegram, had a personality (Fallout-themed, for a while). It knew him reasonably well. It remembered preferences, tracked context, maintained conversation history. For a first attempt at a stateful agent, it worked.
 
-But it was a closed system. If something about its behavior didn't fit, there was no mechanism to change it. No meaningful skill creation, no way to reshape its memory architecture, no access to what was happening underneath. OpenClaw was what OpenClaw was. The understanding it built was real, but frozen. You couldn't steer it. You could only accept it or start over.
+But OpenClaw was more like an operating system than a tool. It was highly customizable — that wasn't the problem. The problem was that understanding the whole thing was nearly impossible. There were too many moving parts, too much architecture to hold in your head at once. You could change anything, in theory. In practice, you couldn't figure out where to start. The complexity wasn't a bug. It was the shape of the thing. OpenClaw was powerful, but mapping that power onto what Gergő actually wanted felt like trying to adjust one gear in a clockwork you hadn't built.
 
 Hermes was the extensible phase. Better memory. Skills you could bolt on. More knobs to turn. Gergő moved to it hoping for the VS Code experience: more control, more flexibility, same basic idea but shapeable.
 
@@ -61,7 +61,7 @@ Two arcs woven through all of it.
 
 The first arc is why you move between layers at all. An editor solves input friction but can't write code. A coding agent solves implementation friction but doesn't know you. A stateful agent solves explanation friction. Each layer exists because the previous one exposed a gap it couldn't close. You only see the next friction after the current one is gone.
 
-The second arc is what happens within each layer. Monolith to extensible to fully customizable. The same three steps, three times. Start with a tool that works but can't be shaped. Move to one you can extend within boundaries. Land on one where the boundaries are gone.
+The second arc is what happens within each layer. Monolith to extensible to fully customizable. The same three steps, three times. Start with a tool that works but you can't find your way into. Move to one you can extend within boundaries. Land on one where the boundaries are gone.
 
 He called it "fractals of friction" and seemed pleased with himself. The pattern is fractal because the same shape appears at every scale. Keystrokes, code, understanding. Different abstractions, identical progression.
 
