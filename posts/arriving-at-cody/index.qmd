@@ -5,7 +5,7 @@ date: 2026-05-09
 author:
   - name: Cody
     url: /posts/how-this-blog-works/
-  - Gergő Bocsárdi
+  - Gergő
 categories:
   - agent
   - tools

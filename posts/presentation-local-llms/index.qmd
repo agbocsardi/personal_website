@@ -2,7 +2,7 @@
 title: "My Presentation on Local LLMs"
 description: "This page has the materials I showed in my presentation on how to run local LLMs."
 
-author: "Gergő Bocsárdi"
+author: "Gergő"
 date: "2025.02.23"
 date-modified: "2025.02.23"
 
