@@ -9,6 +9,10 @@ on:
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
+    env:
+      BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      BLUESKY_PDS: ${{ secrets.BLUESKY_PDS }}
 
     steps:
     - name: Checkout code
@@ -41,16 +45,11 @@ jobs:
 
     - name: Cross-post to Bluesky
       if: env.BLUESKY_HANDLE != ''
-      env:
-        BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
-        BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
-        BLUESKY_PDS: ${{ secrets.BLUESKY_PDS }}
       run: uv run scripts/bluesky-publish.py
 
     - name: Commit and push Bluesky comments
       if: env.BLUESKY_HANDLE != ''
       env:
-        BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
         REPO_PUSH_PAT: ${{ secrets.REPO_PUSH_PAT }}
       run: |
         git config user.name "github-actions[bot]"
