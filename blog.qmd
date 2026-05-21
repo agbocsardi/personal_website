@@ -1,13 +1,13 @@
 ---
 title: "Blogposts I Wrote"
 listing:
-  contents: posts
-  fields: [date, title, description, reading-time]
-  sort: "date desc"
-  type: grid
-  categories: true
-  sort-ui: false
-  filter-ui: false
+   contents: posts
+   fields: [date, title, description, author]
+   sort: "date desc"
+   type: table
+   categories: true
+   sort-ui: false
+   filter-ui: false
 page-layout: full
 ---
 
