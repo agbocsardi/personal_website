@@ -7,7 +7,128 @@ listing:
     category: research
 ---
 
-I am endlessly fascinated by graphs and networks, and my PhD projects explores using them in the field of management! 
+I am endlessly fascinated by graphs and networks, and my PhD projects explores using them in the field of management!
+
+## Works
+
+<div id="orcid-publications">
+  <p>Loading publications from <a href="https://orcid.org/0009-0000-7576-5380">ORCID</a>…</p>
+</div>
+
+<script>
+(() => {
+  const orcid = "0009-0000-7576-5380";
+  const target = document.getElementById("orcid-publications");
+  const endpoint = `https://pub.orcid.org/v3.0/${orcid}/works`;
+
+  const valueAt = (object, path) =>
+    path.reduce((value, key) => value?.[key], object)?.value ?? "";
+
+  const escapeHtml = (text) => String(text ?? "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[char]));
+
+  const workDate = (work) => {
+    const date = work["publication-date"] ?? {};
+    return ["year", "month", "day"]
+      .map((part) => date[part]?.value)
+      .filter(Boolean)
+      .join("-");
+  };
+
+  const doiFor = (work) => {
+    const ids = work["external-ids"]?.["external-id"] ?? [];
+    const doi = ids.find((id) => id["external-id-type"] === "doi");
+    return doi?.["external-id-normalized"]?.value ?? doi?.["external-id-value"];
+  };
+
+  const safeUrl = (url) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.protocol === "https:" ? parsed.href : `https://orcid.org/${orcid}`;
+    } catch {
+      return `https://orcid.org/${orcid}`;
+    }
+  };
+
+  const workUrl = (work) => {
+    const url = work.url?.value;
+    const doi = doiFor(work);
+    if (url) return safeUrl(url);
+    if (doi) return safeUrl(`https://doi.org/${doi}`);
+    return `https://orcid.org/${orcid}`;
+  };
+
+  const authorsFor = (work) => {
+    const contributors = work.contributors?.contributor ?? [];
+    return contributors
+      .map((contributor) => ({
+        name: contributor["credit-name"]?.value?.trim(),
+        orcid: contributor["contributor-orcid"]?.path
+      }))
+      .filter((contributor) => contributor.name)
+      .map((contributor) => {
+        const name = escapeHtml(contributor.name);
+        return contributor.orcid === orcid ? `<strong>${name}</strong>` : name;
+      })
+      .join(", ");
+  };
+
+  const fetchJson = (url) =>
+    fetch(url, { headers: { Accept: "application/json" } }).then((response) => {
+      if (!response.ok) throw new Error(`ORCID returned ${response.status}`);
+      return response.json();
+    });
+
+  fetchJson(endpoint)
+    .then((data) => {
+      const summaries = (data.group ?? [])
+        .map((group) => group["work-summary"]?.[0])
+        .filter(Boolean);
+
+      return Promise.all(summaries.map((summary) => {
+        const detailUrl = `https://pub.orcid.org/v3.0/${orcid}/work/${summary["put-code"]}`;
+        return fetchJson(detailUrl).catch(() => summary);
+      }));
+    })
+    .then((works) => {
+      works.sort((a, b) => workDate(b).localeCompare(workDate(a)));
+
+      if (works.length === 0) {
+        target.innerHTML = `<p>No public ORCID works found.</p>`;
+        return;
+      }
+
+      const items = works.map((work) => {
+        const authors = authorsFor(work);
+        const title = escapeHtml(valueAt(work, ["title", "title"]));
+        const date = escapeHtml(valueAt(work, ["publication-date", "year"]));
+        const venue = escapeHtml(valueAt(work, ["journal-title"]));
+        const type = escapeHtml((work.type ?? "").replaceAll("-", " "));
+        const link = escapeHtml(workUrl(work));
+
+        const typeNote = type && type !== "journal article" ? ` [${type}]` : "";
+
+        return `<li>
+          <a href="${link}" target="_blank" rel="noopener">${title}</a>${date ? ` (${date})` : ""}${typeNote}.${venue ? ` <em>${venue}</em>.` : ""}${authors ? ` by ${authors}.` : ""}
+        </li>`;
+      }).join("");
+
+      target.innerHTML = `<ul>${items}</ul>
+        <p><small>Automatically loaded from <a href="https://orcid.org/${orcid}" target="_blank" rel="noopener">ORCID</a>.</small></p>`;
+    })
+    .catch((error) => {
+      console.error(error);
+      target.innerHTML = `<p>Could not load publications automatically. See my <a href="https://orcid.org/${orcid}" target="_blank" rel="noopener">ORCID profile</a>.</p>`;
+    });
+})();
+</script>
+
+## Research notes
 
 ::: {#research-listing}
 :::
