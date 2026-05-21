@@ -25,6 +25,7 @@ website:
 
 bluesky-comments:
   profile: did:plc:qqcz624yyb7ruo4fxay5k7py
+  header: true
 
 extensions:
   - quarto-ext/bluesky-comments
