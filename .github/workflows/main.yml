@@ -36,11 +36,11 @@ jobs:
 
     # ── Bluesky cross-posting + comments ──────────────────────────────────
     - name: Install uv
-      if: ${{ secrets.BLUESKY_HANDLE != '' }}
+      if: env.BLUESKY_HANDLE != ''
       uses: astral-sh/setup-uv@v5
 
     - name: Cross-post to Bluesky
-      if: ${{ secrets.BLUESKY_HANDLE != '' }}
+      if: env.BLUESKY_HANDLE != ''
       env:
         BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
         BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
@@ -48,8 +48,9 @@ jobs:
       run: uv run scripts/bluesky-publish.py
 
     - name: Commit and push Bluesky comments
-      if: ${{ secrets.BLUESKY_HANDLE != '' }}
+      if: env.BLUESKY_HANDLE != ''
       env:
+        BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
         REPO_PUSH_PAT: ${{ secrets.REPO_PUSH_PAT }}
       run: |
         git config user.name "github-actions[bot]"
