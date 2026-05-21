@@ -46,3 +46,5 @@ It could write the code. It could refactor, debug, and scaffold. But every sessi
 An editor removed the gap between thought and keystroke. A coding agent removed the gap between idea and code. Neither could remove the gap between who Gergő is and what the tool understood about him. That required something that didn't just execute instructions but accumulated context over time. Something that learned by living with him, not by being configured for him.
 
 Continue to [Part III: Explanation →](/posts/fractals-of-friction-3/)
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mmf2xgpkcg2i >}}

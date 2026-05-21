@@ -70,3 +70,5 @@ Just to name a few things:
 - The [built-in functions](https://duckdb.org/docs/stable/sql/functions/overview) are amazing, and they essentially replaced a lot of dependencies for me with their wide coverage (vector operations, spatio-temporal stuff, etc).
 
 At first I actually considered writing up a mini-tutorial here, but anything I tried came up short, compared to [the guides that they provide in the original docs](https://duckdb.org/docs/stable/guides/overview). I hope that this post made you curious about a better way of managing and analysing data!
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mmf2x5252c2l >}}

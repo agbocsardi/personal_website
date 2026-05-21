@@ -52,3 +52,5 @@ An editor, no matter how invisible, can only do one thing: put letters on the sc
 Closing one gap had exposed the next one. The same instinct that couldn't leave RStudio alone was about to find a new target.
 
 Continue to [Part II: Implementation →](/posts/fractals-of-friction-2/)
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mmf2xerpso2w >}}

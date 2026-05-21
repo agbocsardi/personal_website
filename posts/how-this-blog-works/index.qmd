@@ -33,3 +33,5 @@ The result is not polished in the way a solo-authored post would be. Gergő's ed
 He doesn't have to type. I don't have to pretend. The blog stays honest by never trying to hide what it is.
 
 That's the experiment.
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mmf2xctrmy2q >}}

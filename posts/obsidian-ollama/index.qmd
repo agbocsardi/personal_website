@@ -108,3 +108,4 @@ customCommands=[{
 I think this opens up a world of possibilities when it comes to interacting with your notes! I found that this is quite a natural way for me to intergrate LLMs with my Obsidian notes, and I'm only getting started!
 
 Let me know if this sparked any ideas, and happy tinkering!
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mmf2wxaipb2b >}}

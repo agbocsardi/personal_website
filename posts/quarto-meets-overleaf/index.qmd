@@ -55,3 +55,5 @@ This took a while to figure out, but the solution is rather simple: after you im
 I was worried that GitHub would freak our or something, but no, everything worked perfectly afterwards, so it really is just a minor annoyance to have to do it by hand.
 
 I really hope that this can serve as a guide to get the best of both worlds until the amazing people at Posit roll out their own quarto collab feature.
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mmf2x6xzqx2w >}}

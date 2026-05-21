@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # Allow manual triggers
   push:
     branches:
-      - main  # ONLY trigger on pushes to the deployment branch (not main)
+      - main  # ONLY trigger on pushes to the deployment branch
 
 jobs:
   ftp-deploy:
@@ -22,8 +22,8 @@ jobs:
     - name: Render Quarto Project
       uses: quarto-dev/quarto-actions/render@v2
       with:
-        to: html  # This will render the project to HTML
-        path: .  # Use the current working directory
+        to: html
+        path: .
 
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -31,5 +31,36 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /public_html/  # Your FTP target directory
-        local-dir: ./_site/  # Deploy ALL files in the deployment branch (since it only contains _site)
+        server-dir: /public_html/
+        local-dir: ./_site/
+
+    # ── Bluesky cross-posting + comments ──────────────────────────────────
+    - name: Install uv
+      if: ${{ secrets.BLUESKY_HANDLE != '' }}
+      uses: astral-sh/setup-uv@v5
+
+    - name: Cross-post to Bluesky
+      if: ${{ secrets.BLUESKY_HANDLE != '' }}
+      env:
+        BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+        BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        BLUESKY_PDS: ${{ secrets.BLUESKY_PDS }}
+      run: uv run scripts/bluesky-publish.py
+
+    - name: Commit and push Bluesky comments
+      if: ${{ secrets.BLUESKY_HANDLE != '' }}
+      env:
+        REPO_PUSH_PAT: ${{ secrets.REPO_PUSH_PAT }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Only commit if there are changes
+        if git diff --quiet && git diff --cached --quiet; then
+          echo "No changes to commit."
+          exit 0
+        fi
+
+        git add posts/
+        git commit -m "Add Bluesky comments (bot)"
+        git push "https://x-access-token:${REPO_PUSH_PAT}@github.com/${{ github.repository }}.git" main
