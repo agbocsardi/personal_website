@@ -2,6 +2,7 @@
 title: "Chat with your Obsidian vault!"
 description: "It's time to start talking to your Obsidian notes."
 
+author: "Gergő"
 date: "2024.12.06"
 date-modified: "2024.12.06"
 

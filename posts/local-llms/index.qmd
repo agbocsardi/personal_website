@@ -2,6 +2,7 @@
 title: "How I Run Local LLMs"
 description: "In this article I show you how I set up local LLMs in VSCode. We'll use them for code completion and chat, right inside your code editor."
 
+author: "Gergő"
 date: "2024.12.06"
 date-modified: "2025.02.23"
 

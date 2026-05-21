@@ -1,7 +1,7 @@
 ---
 title: "Quarto Meets Overleaf (finally)"
 description: "This post is the result of some hard digging trying to eat my cake (use nice Quarto projects) and have it too (get feedback from my supervisors on writing without emailing PDFs)."
-author: "Gergő Bocsárdi"
+author: "Gergő"
 date: "2025-09-26"
 date-modified: "2025-09-26"
 draft: false
