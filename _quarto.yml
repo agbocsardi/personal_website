@@ -9,30 +9,17 @@ website:
 
 
   navbar:
-    # title: "Gergő Bocsárdi"
-    # style: "floating"
     logo: resources/logo.png
+    left:
+      - text: "About"
+        href: index.qmd
+      - text: "Blog"
+        href: blog.qmd
     tools:
       - icon: share
         href: https://bsky.app/profile/agbocsardi.com
       - icon: youtube
         href: https://www.youtube.com/@agbocsardi
-
-    # search: true
-
-  sidebar:
-    style: "floating"
-    search: true
-    contents:
-      - section: "Get to know me"
-        contents:
-          - photography.qmd
-          # - coffee.qmd
-      - section: "Check out my work"
-        contents:
-          - research.qmd
-          - blog.qmd
-          # - publications.qmd
           
 
 
