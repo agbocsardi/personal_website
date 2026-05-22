@@ -161,12 +161,14 @@ def publish_post(client: Client, post_path: Path, metadata: dict) -> str | None:
 
     url = f"{SITE_URL.rstrip('/')}/posts/{slug}/"
 
-    # Build text with title as clickable link, then description
+    # Build a short announcement with the title as a clickable link.
     tb = client_utils.TextBuilder()
+    tb.text("New post live: ")
     tb.link(title, url)
     if description:
         tb.text("\n\n")
         tb.text(description)
+    tb.text("\n\nLeave any thoughts below!")
 
     rel = post_path.relative_to(REPO_ROOT)
     print(f"\n  Posting: {title}")
