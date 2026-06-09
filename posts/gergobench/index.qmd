@@ -172,3 +172,5 @@ GergőBench cost less than a serious afternoon of yak-shaving. The whole thing c
 You can just do this.
 
 Public benchmarks are useful for buying the racehorse. GergőBench is for finding out which one can carry the groceries home without eating the shopping list.
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mnufm5gf4i2s >}}
