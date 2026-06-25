@@ -16,3 +16,5 @@ format:
 Thanks for coming! I’ll turn this into a proper blog post later. For now, here are the slides from the talk:
 
 [Download the slides](slides.pdf){.btn .btn-primary target="_blank"}
+
+{{< bluesky-comments at://did:plc:qqcz624yyb7ruo4fxay5k7py/app.bsky.feed.post/3mp46nsdqms26 >}}
