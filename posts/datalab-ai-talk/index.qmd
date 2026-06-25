@@ -1,0 +1,18 @@
+---
+title: "There and Back Again"
+subtitle: "How to get the most from AI tooling today, without forgetting to think"
+description: "Slides for my talk at the JADS MKB Datalab."
+date: "2026-06-25"
+categories:
+  - AI
+  - talks
+  - datalab
+page-layout: full
+format:
+  html:
+    toc: false
+---
+
+Thanks for coming! I’ll turn this into a proper blog post later. For now, here are the slides from the talk:
+
+[Download the slides](slides.pdf){.btn .btn-primary target="_blank"}
